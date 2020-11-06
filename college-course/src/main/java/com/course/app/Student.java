@@ -27,4 +27,13 @@ public class Student {
     public String getUsername() {
         return this.studentName + this.age;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentName='" + studentName + '\'' +
+                ", age=" + age +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
 }
