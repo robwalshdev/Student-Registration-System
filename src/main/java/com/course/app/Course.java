@@ -58,12 +58,11 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "courseName='" + courseName + '\'' +
-                ", moduleList=" + moduleList +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", students=" + getStudents() +
-                '}';
+        return "Course Details:\n" +
+                "Course name: " + courseName + "\n" +
+                "Start date: " + startDate + "\n" +
+                "End date: " + endDate + "\n" +
+                "Modules in course: " + moduleList + "\n" +
+                "Students enrolled: " + getStudents();
     }
 }
