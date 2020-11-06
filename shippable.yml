@@ -5,4 +5,4 @@ jdk:
 
 build:
   ci:
-    - mvn install
+    - mvn clean test
