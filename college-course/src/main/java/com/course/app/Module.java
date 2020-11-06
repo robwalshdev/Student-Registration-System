@@ -27,4 +27,12 @@ public class Module {
     public List<Student> getStudentList() {
         return studentList;
     }
+
+    @Override
+    public String toString() {
+        return "Module{" +
+                "moduleName='" + moduleName + '\'' +
+                ", studentList=" + studentList +
+                '}';
+    }
 }

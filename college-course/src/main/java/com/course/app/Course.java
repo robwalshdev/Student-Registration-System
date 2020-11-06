@@ -4,10 +4,10 @@ import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Course {
     private String courseName;
-    private List<Student> studentList = new ArrayList<>();
     private List<Module> moduleList = new ArrayList<>();
     private DateTime startDate;
     private DateTime endDate;
@@ -18,18 +18,14 @@ public class Course {
         this.endDate = endDate;
     }
 
-    public Course(String courseName, List<Student> studentList, List<Module> moduleList, DateTime startDate,
+    public Course(String courseName, List<Module> moduleList, DateTime startDate,
           DateTime endDate) {
         this.courseName = courseName;
-        this.studentList = studentList;
         this.moduleList = moduleList;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public void addStudent(Student student) {
-        studentList.add(student);
-    }
 
     public void addModule(Module module) {
         moduleList.add(module);
@@ -39,8 +35,13 @@ public class Course {
         return courseName;
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
+    public List<Student> getStudents() {
+        List<Student> listOfStudents = new ArrayList<>();
+        for (Module module: moduleList) {
+            listOfStudents.addAll(module.getStudentList());
+        }
+
+        return listOfStudents.stream().distinct().collect(Collectors.toList());
     }
 
     public List<Module> getModuleList() {
@@ -53,5 +54,16 @@ public class Course {
 
     public DateTime getEndDate() {
         return endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", moduleList=" + moduleList +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", students=" + getStudents() +
+                '}';
     }
 }
