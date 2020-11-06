@@ -30,9 +30,8 @@ public class Module {
 
     @Override
     public String toString() {
-        return "Module{" +
-                "moduleName='" + moduleName + '\'' +
-                ", studentList=" + studentList +
-                '}';
+        return "Module Details:\n\t" +
+                "Module name: " + moduleName  + "\n\t" +
+                "Students enrolled: " + studentList;
     }
 }

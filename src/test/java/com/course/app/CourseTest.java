@@ -26,6 +26,8 @@ public class CourseTest {
 
     @Test
     public void getCourseName() {
+        System.out.println(testCourse);
+
         assertEquals(testCourseName, testCourse.getCourseName());
     }
 
