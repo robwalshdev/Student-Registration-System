@@ -1,8 +1,8 @@
 language: java
 
 jdk:
-  - oraclejdk11
+  - openjdk11
 
 build:
   ci:
-    - mvn clean install
+    - mvn clean test
