@@ -29,6 +29,13 @@ public class Course {
 
     public void addModule(Module module) {
         moduleList.add(module);
+
+        // Assign course to student
+        for(Student student: module.getStudentList())
+            student.addCourse(this);
+
+        // Add course to list of courses for modules
+        module.addCourse(this);
     }
 
     public String getCourseName() {
@@ -36,6 +43,11 @@ public class Course {
     }
 
     public List<Student> getStudents() {
+        // Get students enrolled:
+        // Ensures no duplicate students are returned
+        // which could occur due to students being
+        // enrolled in multiple modules which are part
+        // of one course.
         List<Student> listOfStudents = new ArrayList<>();
         for (Module module: moduleList) {
             listOfStudents.addAll(module.getStudentList());
